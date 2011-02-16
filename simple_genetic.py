@@ -43,7 +43,7 @@ class Runner():
 				if r.random() < self.odds_mutation:
 					individual.mutate(self.new_value())
 
-			max_fitness = max(list(map(self.fitness, population)))
+			max_fitness = max([self.fitness(x) for x in population])
 			min_fitness = max_fitness * self.fitness_cutoff
 
 			if max_fitness >= self.req_fitness:

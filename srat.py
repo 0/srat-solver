@@ -2,7 +2,7 @@ import simple_genetic
 from srat_verify import works
 
 def fitness(ans):
-	c = 0.0
+	c = 0
 
 	for w in works:
 		if w(ans.value()):
