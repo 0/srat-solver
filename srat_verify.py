@@ -1,6 +1,7 @@
 A = ord('A')
 
 def qs_with_ans(qs, num, ans):
+	"""Whether the requisite number of answers match the given answer."""
 	c = 0
 	for q in qs:
 		if q in ans:
