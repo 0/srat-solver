@@ -1,10 +1,3 @@
-# A solution to...
-
-# Self-Referential Aptitude Test
-# by Jim Propp
-# http://faculty.uml.edu/jpropp/srat.html
-# http://www.drunkmenworkhere.org/170
-
 ### One verification function per question.
 
 A = ord('A')
