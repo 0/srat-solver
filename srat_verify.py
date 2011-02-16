@@ -26,7 +26,7 @@ def works_02(ans):
 	x = ans[1]
 	foo = ord(x) - A + 5
 
-	for i in xrange(len(ans) - 1):
+	for i in range(len(ans) - 1):
 		if ans[i] == ans[i + 1]:
 			if i != foo:
 				return False
@@ -167,7 +167,7 @@ def works_13(ans):
 	x = ans[12]
 	foo = (ord(x) - A + 4) * 2
 
-	for i in xrange(len(ans)):
+	for i in range(len(ans)):
 		if i % 2 != 0: continue
 
 		if ans[i] == 'A':
@@ -259,4 +259,4 @@ def works_20(ans):
 assert works_20('ABCDEABCDEABCDEABCDE')
 assert not works_20('EDCBAEDCBAEDCBAEDCBA')
 
-works = [eval("works_%02d" % (x + 1)) for x in xrange(20)]
+works = [eval("works_%02d" % (x + 1)) for x in range(20)]

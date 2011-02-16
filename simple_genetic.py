@@ -13,7 +13,7 @@ class Individual():
 		return ''.join(self.chromosome)
 
 	def mutate(self, v):
-		self.chromosome[r.choice(xrange(len(self.chromosome)))] = v
+		self.chromosome[r.choice(range(len(self.chromosome)))] = v
 
 	def mate(self, other):
 		chromosome = [a if r.random() < 0.5 else b
@@ -34,8 +34,8 @@ class Runner():
 		return r.choice(self.alleles)
 
 	def run(self):
-		population = [Individual([self.new_value() for y in xrange(self.num_genes)])
-			for x in xrange(self.pop_size)]
+		population = [Individual([self.new_value() for y in range(self.num_genes)])
+			for x in range(self.pop_size)]
 
 		generation = 1
 		while True:
@@ -43,7 +43,7 @@ class Runner():
 				if r.random() < self.odds_mutation:
 					individual.mutate(self.new_value())
 
-			max_fitness = max(map(self.fitness, population))
+			max_fitness = max(list(map(self.fitness, population)))
 			min_fitness = max_fitness * self.fitness_cutoff
 
 			if max_fitness >= self.req_fitness:
@@ -58,7 +58,7 @@ class Runner():
 					if self.fitness(individual) >= min_fitness]
 
 				if len(survivors) == 0:
-					raise PlagueError, "There were no survivors at generation %d." % generation
+					raise PlagueError("There were no survivors at generation %d." % generation)
 				else:
 					population = survivors
 					min_fitness += self.fitness_inc

@@ -16,9 +16,9 @@ try:
 	soln, gen = g.run()
 
 	if soln != "DADBEDDEDABADBADBABE":
-		raise ValueError, "Incorrect solution!"
+		raise ValueError("Incorrect solution!")
 
-	print gen
-except simple_genetic.PlagueError, e:
-	print e
+	print(gen)
+except simple_genetic.PlagueError as e:
+	print(e)
 
