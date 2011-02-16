@@ -13,7 +13,8 @@ class Individual():
 		return ''.join(self.chromosome)
 
 	def mutate(self, v):
-		self.chromosome[r.choice(range(len(self.chromosome)))] = v
+		gene = r.randrange(len(self.chromosome))
+		self.chromosome[gene] = v
 
 	def mate(self, other):
 		chromosome = [a if r.random() < 0.5 else b
@@ -66,4 +67,3 @@ class Runner():
 			generation += 1
 
 		return sorted(population, key=self.fitness)[-1].value(), generation
-

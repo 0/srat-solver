@@ -1,4 +1,4 @@
-import simple_genetic
+from simple_genetic import PlagueError, Runner
 from srat_verify import works
 
 def fitness(ans):
@@ -7,10 +7,10 @@ def fitness(ans):
 	for w in works:
 		if w(ans.value()):
 			c += 1
-	
-	return c / 20
 
-g = simple_genetic.Runner(fitness, 'ABCDE', 20, 0.50, 0.15, 1000, 0.50)
+	return c / len(works)
+
+g = Runner(fitness, 'ABCDE', num_genes=len(works), odds_mating=0.50, odds_mutation=0.15, pop_size=1000, fitness_cutoff=0.50)
 
 try:
 	soln, gen = g.run()
@@ -19,6 +19,5 @@ try:
 		raise ValueError("Incorrect solution!")
 
 	print(gen)
-except simple_genetic.PlagueError as e:
+except PlagueError as e:
 	print(e)
-
